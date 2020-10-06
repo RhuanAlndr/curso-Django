@@ -9,7 +9,7 @@ class Post(models.Model):
         ('publicado', 'Publicado'),
     )
     title = models.CharField(max_length=250)
-    alug = models.SlugField(max_length=250)
+    slug = models.SlugField(max_length=250)
     autor = models.ForeignKey(User,
                               on_delete=models.CASCADE)
     conteudo = models.TextField()
@@ -21,7 +21,7 @@ class Post(models.Model):
                               default='rascunho')
 
     class Meta:
-        ordering = ('-publicado',)
+        ordering = ('publicado',)
 
     def __str__(self):
         return self.title
